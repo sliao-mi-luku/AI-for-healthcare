@@ -20,9 +20,9 @@ You can look up the tags in the link: [Registry of DICOM data elements](http://d
 **why important?**
   
 - DICOM can be seen as a universal way that medical imaging dataset are formatted
-- Therefore, getting used to the **anatomy** and **data format** of DICOM makes it easier to
-  -- dive into the data quicker
-  -- know (or know how to find) the location where an information you want to retrieve is located (tag)
+- Therefore, getting used to the **anatomy** and **data format** of DICOM makes it easier to\
+  -- dive into the data quicker\
+  -- know (or know how to find) the location where an information you want to retrieve is located (tag)\
   -- know (or know how to find) the way the information is encoded/represented (value representation)
 
 **hands-on!**

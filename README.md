@@ -16,6 +16,7 @@ A DICOM data contains many tags (a dim=2 tuple), whcih uniquely describes a piec
 
 You can look up the tags in the link: [Registry of DICOM data elements](http://dicom.nema.org/medical/dicom/2020a/output/chtml/part06/chapter_6.html)
 
+You can lool up the definition of each data type in this link: [DICOM value representation](http://dicom.nema.org/medical/dicom/2020a/output/chtml/part05/sect_6.2.html)
  
 **why important?**
   

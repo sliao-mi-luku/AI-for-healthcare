@@ -1,6 +1,8 @@
 # Medical_image_analysis
 
-last updated: 04/30/2021
+last updated: 05/14/2021
+
+Reference: Udacity's AI for Healthcare Nanodegree
 
 ---
 
@@ -66,6 +68,26 @@ The python *pydicom* is the tool yo want to use to handle DICOM images
 
 
 ---
-## 
+## Exploratory Data Analysis (Python)
 
-****
+**Loading images**
+
+```python3
+import pydicom
+import numpy as np
+import os
+
+path = f"<path_to_the_dataset>"
+
+# loading images
+slices = [pydicom.dcmread(os.path.join(path, f)) for f in sorted(os.listdir(path))]
+
+# sort the slices by the correct order
+slices = sorted(slices, key = lambda x: x.ImagePositionPatient[0])
+```
+
+**Looking up metadata information**
+
+```python3
+
+```

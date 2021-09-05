@@ -1,4 +1,4 @@
-# Medical_image_analysis
+# AI for Healthcare
 
 last updated: 05/14/2021
 

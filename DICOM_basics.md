@@ -31,4 +31,23 @@ DICOM, Digital Imaging and Communications in Medicine, is a standard:
 
 2. 3D Slicer
 
+## Important parameters
+
+(0020, 0037) Image Orientation Patient - define the orientation of the first row and the first column of the image.
+
+(0020, 0032) Image Position Patient - define the (x, y, z) coordinates of the upper left corner of the image
+
+(0028, 0030) Pixel Spacing - physical distance between pixel centers
+
+(0018, 0050) Slice Thickness - thickness of a single slice
+
+(0028, 0100) Bitts Allocated - number of bits allocated for each pixel
+
+(0028, 0101) Bits Stored - number of bits actually used by each pixel
+
+(0020, 0010) Rows - height of the slice (in voxels)
+
+(0020, 0011) Columns - width of the slice (in voxels)
+
+
 ##

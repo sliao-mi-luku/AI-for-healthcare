@@ -49,5 +49,27 @@ DICOM, Digital Imaging and Communications in Medicine, is a standard:
 
 (0020, 0011) Columns - width of the slice (in voxels)
 
+```python
+"""
+Example codes
+"""
+
+import pydicom
+import os
+
+dcm_dir_path = 'the/path/to/the/dcm/file'
+
+# read all dcm files in the dcm_dir_path and append them to a list (slices)
+slices = [pydicom.dcmread(os.path.join(dcm_dir_path, f)) for f in os.listdir(dcm_dir_path)]
+
+# print all stored DICOM metadata
+print(slices[0])
+
+# view pixel spacing
+print("Pixel Spacing = {}".format(slices[0].PixelSpacing))
+
+print("Pixel Spacing = {}".format(slices[0][0x0028, 0x0030].value))
+```
+
 
 ##

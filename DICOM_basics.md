@@ -54,6 +54,7 @@ DICOM, Digital Imaging and Communications in Medicine, is a standard:
 Example codes
 """
 
+import numpy as np
 import pydicom
 import os
 
@@ -67,9 +68,36 @@ print(slices[0])
 
 # view pixel spacing
 print("Pixel Spacing = {}".format(slices[0].PixelSpacing))
-
+# or
 print("Pixel Spacing = {}".format(slices[0][0x0028, 0x0030].value))
+
+# retrieve pixel data
+image_data = np.stack([s.pixel_array for s in slices])
+print(image_data.shape)
+print(image_data.dtype)
+
+# display a slice
+img = image_data[100, :, :]
+plt.imshow(img, cmap="gray")
+
+# adjust the scale
+aspect_ratio = slices[0].SliceThickness / slices[0].PixelSpacing[0]
+plt.imshow(img, cmap="gray", aspect=aspect_ratio)
+
 ```
 
 
-##
+## Houndfield Units (CT scans)
+
+| Type | Hounsfield Units |
+| ----------- | ----------- |
+| Bone | 400 ~ 1,000 |
+| Soft Tissue | 80 ~ 400 |
+| Water | 0 |
+| Fat | -100 ~ -60 |
+| Lung | -600 ~ -400 |
+| Air | -1,000 |
+
+``` python
+
+```

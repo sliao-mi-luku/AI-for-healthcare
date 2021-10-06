@@ -1,1 +1,2 @@
-exercise_load_image/*.dcm
+exercises/*.dcm
+exercises/volume/*

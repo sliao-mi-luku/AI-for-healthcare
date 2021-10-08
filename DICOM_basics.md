@@ -115,3 +115,72 @@ print(nii_img.header["pixdim"])
 ```python
 
 ```
+
+**Metrics**
+
+Sensitivity = TP / (TP + FN)
+
+> Low Sensitivity --> under segmentation
+
+Specificity = TP / (TP + FP)
+
+> Low Specificity --> over segmentation
+
+Dice Similarity Coefficient (DSC) = 2|X and Y| / (|X| + |Y|)
+
+Jaccard Index (J) = |X and Y| / |X or Y|
+
+Hausdorff Distance HD = max(Dist_X_to_Y, Dist_Y_to_X)
+
+## DICOM Networking
+
+Definition resources: http://dicom.nema.org/medical/dicom/2020a/output/chtml/part07/PS3.7.html
+
+#### Application Entity
+
+An abstraction of an application that uses DICOM networking protocol to communicate
+
+#### DIMSE (DICOM Message Service Element)
+
+#### PACS (Picture Archiving and Communication System)
+
+#### VNA (Vendor Neutral Archive)
+
+Often deployed in a cloud environment
+
+#### EHR (Electronic Health Record)
+
+#### RIS (Radiology Information System)
+
+Mini-EHRs for radiology departments
+
+#### HL7 (Health Level 7)
+
+A protocol used to exchange patient data and physician orders between systems
+
+#### FHIR (Fast Healthcare Interoperability Resources)
+
+The new generation of HL7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ddd

@@ -35,27 +35,27 @@ class UNet(nn.Module):
         Encoder
         """
         # 1st encode unet_block
-        self.EncoderBlock1 = self.unet_block(in_channels=dim_in, out_channels=d_hidden, prefix="enc1")
+        self.EncoderBlock1 = self.unet_block(dim_in=dim_in, dim_out=d_hidden, prefix="enc1")
         # 2nd encode unet_block
-        self.EncoderBlock2 = self.unet_block(in_channels=d_hidden, out_channels=2*d_hidden, prefix="enc2")
+        self.EncoderBlock2 = self.unet_block(dim_in=d_hidden, dim_out=2*d_hidden, prefix="enc2")
         # 3rd encode unet_block
-        self.EncoderBlock3 = self.unet_block(in_channels=2*d_hidden, out_channels=4*d_hidden, prefix="enc3")
+        self.EncoderBlock3 = self.unet_block(dim_in=2*d_hidden, dim_out=4*d_hidden, prefix="enc3")
         # 4th encode unet_block
-        self.EncoderBlock4 = self.unet_block(in_channels=4*d_hidden, out_channels=8*d_hidden, prefix="enc4")
+        self.EncoderBlock4 = self.unet_block(dim_in=4*d_hidden, dim_out=8*d_hidden, prefix="enc4")
         # bottleneck (encoder)
-        self.EncoderBottleNeck = self.unet_block(in_channels=8*d_hidden, out_channels=16*d_hidden, prefix="bottleneck")
+        self.EncoderBottleNeck = self.unet_block(dim_in=8*d_hidden, dim_out=16*d_hidden, prefix="bottleneck")
         # 4th decoder transpose conv + block
         self.DecoderTransConv4 = nn.ConvTranspose2d(in_channels=16*d_hidden, out_channels=8*d_hidden, kernel_size=2, stride=2)
-        self.DecoderBlock4 = self.unet_block(in_channels=2*8*d_hidden, out_channels=8*d_hidden, prefix="dec4")
+        self.DecoderBlock4 = self.unet_block(dim_in=2*8*d_hidden, dim_out=8*d_hidden, prefix="dec4")
         # 3rd decoder transpose conv + block
         self.DecoderTransConv3 = nn.ConvTranspose2d(in_channels=8*d_hidden, out_channels=4*d_hidden, kernel_size=2, stride=2)
-        self.DecoderBlock3 = self.unet_block(in_channels=2*4*d_hidden, out_channels=4*d_hidden, prefix="dec3")
+        self.DecoderBlock3 = self.unet_block(dim_in=2*4*d_hidden, dim_out=4*d_hidden, prefix="dec3")
         # 2nd decoder transpose conv + block
         self.DecoderTransConv2 = nn.ConvTranspose2d(in_channels=4*d_hidden, out_channels=2*d_hidden, kernel_size=2, stride=2)
-        self.DecoderBlock2 = self.unet_block(in_channels=2*2*d_hidden, out_channels=2*d_hidden, prefix="dec2")
+        self.DecoderBlock2 = self.unet_block(dim_in=2*2*d_hidden, dim_out=2*d_hidden, prefix="dec2")
         # 1st decoder transpose conv + block
         self.DecoderTransConv1 = nn.ConvTranspose2d(in_channels=2*d_hidden, out_channels=d_hidden, kernel_size=2, stride=2)
-        self.DecoderBlock1 = self.unet_block(in_channels=2*d_hidden, out_channels=d_hidden, prefix="dec1")
+        self.DecoderBlock1 = self.unet_block(dim_in=2*d_hidden, dim_out=d_hidden, prefix="dec1")
         # last Conv2D
         self.LastConv = nn.ConvTranspose2d(in_channels=d_hidden, out_channels=dim_out, kernel_size=1)
 
@@ -94,11 +94,11 @@ class UNet(nn.Module):
         # second conv2D layer
         conv2 = nn.Conv2d(in_channels=dim_out, out_channels=dim_out, kernel_size=3, padding='same', bias=False)
 
-        u_block = nn.Sequential(OrderDict([(prefix + "conv1", conv1),
-                                           (prefix + "bn1", nn.BatchNorm2d(num_features=dim_out)),
-                                           (prefix + "relu1", nn.ReLU(inplace=True)),
-                                           (prefix + "conv2", conv2),
-                                           (prefix + "bn2", nn.BatchNorm2d(num_features=dim_out)),
-                                           (prefix + "relu2", nn.ReLU(inplace=True))]))
+        u_block = nn.Sequential(OrderedDict([(prefix + "conv1", conv1),
+                                             (prefix + "bn1", nn.BatchNorm2d(num_features=dim_out)),
+                                             (prefix + "relu1", nn.ReLU(inplace=True)),
+                                             (prefix + "conv2", conv2),
+                                             (prefix + "bn2", nn.BatchNorm2d(num_features=dim_out)),
+                                             (prefix + "relu2", nn.ReLU(inplace=True))]))
 
         return u_block

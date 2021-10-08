@@ -8,8 +8,6 @@ Resources:
 4. [DICOM value representation](http://dicom.nema.org/dicom/2013/output/chtml/part05/sect_6.2.html)
 
 
-
-
 ## DICOM
 
 DICOM, Digital Imaging and Communications in Medicine, is a standard:
@@ -98,6 +96,22 @@ plt.imshow(img, cmap="gray", aspect=aspect_ratio)
 | Lung | -600 ~ -400 |
 | Air | -1,000 |
 
+
+## Loading NIFTI volumes
+
 ``` python
+import nibabel as nib
+
+nii_img = nib.load('path/to/the/nii.gz/file')
+
+img = nii_img.get_fdata()
+
+# pixel dimension
+print(nii_img.header["pixdim"])
+```
+
+## Segmentation
+
+```python
 
 ```

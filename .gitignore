@@ -1,3 +1,5 @@
 exercises/*.dcm
 exercises/volume/*
 exercises/spleen_data/*
+projects/hippocampus_volume/data/*
+*/.ipynb_checkpoints

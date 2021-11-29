@@ -8,3 +8,6 @@ projects/hippocampus_volume/data/*
 projects/pulse_rate_algorithm/passed.png
 projects/pulse_rate_algorithm/unit_test.pdf
 projects/pulse_rate_algorithm/*.zip
+
+
+projects/pneumonia_detection/Build_and_train_model_udacity_default.ipynb

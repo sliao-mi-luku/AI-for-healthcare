@@ -46,3 +46,6 @@ Details of each column in the dataset can be found in `project_data_schema.csv` 
     - "normal" if the result was less than 7%
     - "none" if not measured
 - `change` - (categorical) indicator of change in diabetic medications: "change" or "no change"
+
+## Data Preprocessing
+```

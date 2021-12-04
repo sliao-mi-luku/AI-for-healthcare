@@ -1,7 +1,7 @@
 exercises/*.dcm
 exercises/volume/*
 exercises/spleen_data/*
-projects/hippocampus_volume/data/*
+
 */.ipynb_checkpoints
 
 
@@ -20,3 +20,6 @@ projects/EHR_diabetes_drug_testing/utils.py
 
 
 projects/hippocampus_volume/testing_zone/*
+
+
+projects/hippocampus_volume/data/*

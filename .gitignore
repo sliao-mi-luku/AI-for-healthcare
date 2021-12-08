@@ -20,6 +20,7 @@ projects/EHR_diabetes_drug_testing/utils.py
 
 
 projects/hippocampus_volume/testing_zone/*
-
-
 projects/hippocampus_volume/data/*
+
+
+projects/pneumonia_detection/testing_zone/*
